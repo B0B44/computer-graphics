@@ -13,9 +13,9 @@ static inline void trim(std::string &s) {
 
 Vec::Vec() : x(0.0), y(0.0), z(0.0) {}
 
-Vec::Vec(double x_, double y_, double z_) : x(x_), y(y_), z(z_) {}
+Vec::Vec(const double x_, const double y_, const double z_) : x(x_), y(y_), z(z_) {}
 
-Vec::Vec(const std::string input_string, char delimiter){
+Vec::Vec(const std::string &input_string, const char delimiter){
 	std::stringstream ss(input_string);
 	std::vector<double> vect;
 	std::string str;
@@ -52,10 +52,10 @@ const Vec Vec::operator /(const double &that) const {
 	return Vec(x / that, y / that, z / that);
 }
 
-const Vec operator *(const double &num, const Vec vec) {
+const Vec operator *(const double &num, const Vec &vec) {
 	return Vec(vec.x * num, vec.y * num, vec.z * num);
 }
-const Vec operator /(const double &num, const Vec vec) {
+const Vec operator /(const double &num, const Vec &vec) {
 	return Vec(vec.x / num, vec.y / num, vec.z / num);
 }
 
@@ -78,7 +78,7 @@ std::ostream& operator<<(std::ostream &os, const Vec &vec){
 
 Vertex::Vertex() : pos(), normal() {}
 
-Vertex::Vertex(Vec pos_, Vec normal_) : pos(pos_), normal(normal_) {}
+Vertex::Vertex(const Vec &pos_, const Vec &normal_) : pos(pos_), normal(normal_) {}
 
 std::ostream& operator<<(std::ostream &os, const Vertex &vertex){
 	os << vertex.pos << " == > " << vertex.normal;
@@ -97,7 +97,7 @@ const Vertex Vertex::operator -(const Vec &that) const {
 	return Vertex(pos - that, normal - that);
 }
 
-void TriangleSoup::add_triangle(const Vec a, const Vec b, const Vec c) {
+void TriangleSoup::add_triangle(const Vec &a, const Vec &b, const Vec &c) {
 	const Vertex v1 = Vertex(a, b);
 	const Vertex v2 = Vertex(b, c);
 	const Vertex v3 = Vertex(c, a);
@@ -111,7 +111,7 @@ void TriangleSoup::add_triangle(const Vec a, const Vec b, const Vec c) {
 	ts.push_back(v3);
 }
 
-void TriangleSoup::offset(const Vec vec) {
+void TriangleSoup::offset(const Vec &vec) {
 	for (long unsigned int i = 0; i < ts.size(); i++) {
 		ts[i] = ts[i] + vec;
 	}
