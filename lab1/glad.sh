@@ -1,0 +1,1 @@
+python -m glad --profile core --out-path ./MeshEditor/ --generator c --spec gl --local-files --quiet
