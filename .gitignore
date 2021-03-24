@@ -1,3 +1,4 @@
 *.o
 *.stl
-MeshEditor/MeshEditor
+*MeshEditor
+!*MeshEditor/
