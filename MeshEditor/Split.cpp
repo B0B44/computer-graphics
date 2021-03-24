@@ -38,7 +38,7 @@ int Split::execute(const map<string, string>& args){
 	if (it != args.end()) input_output2 = it->second;
 	else return 7;
 
-	std::cout << "Input:" << std::endl
+	std::cout << "Split:" << std::endl
 		<< "\t origin:    " << input_origin    << std::endl
 		<< "\t direction: " << input_direction << std::endl
 		<< "\t input:     " << input_input     << std::endl

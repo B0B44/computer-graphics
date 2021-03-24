@@ -29,8 +29,7 @@ int Sphere::execute(const map<string, string>& args){
 	if (it != args.end()) input_filename = it->second;
 	else return 3;
 
-
-	std::cout << "Input:" << std::endl
+	std::cout << "Sphere:" << std::endl
 		<< "\t r: " << input_R << std::endl
 		<< "\t origin: " << input_origin << std::endl
 		<< "\t filename: " << input_filename << std::endl;

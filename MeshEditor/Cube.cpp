@@ -28,6 +28,11 @@ int Cube::execute(const map<string, string>& args){
 	if (it != args.end()) input_filename = it->second;
 	else return 3;
 
+	std::cout << "Cube:" << std::endl
+		<< "\t l: " << input_L << std::endl
+		<< "\t origin: " << input_origin << std::endl
+		<< "\t filename: " << input_filename << std::endl;
+
 	l = std::stod(input_L);
 	if (l <= 0) return 1;
 
